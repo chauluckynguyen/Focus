@@ -55,7 +55,7 @@ class TodoList extends React.Component {
             <label className="todoList--input--label">Create New Task</label>
             <div className="todoList--input--container">
               <input ref={(e) => this._inputElement = e} placeholder="enter task" className="todoList--input--field"></input>
-              <button className="todoList--input--btn" type="submit">add</button>
+              <button className="todoList--input--btn" type="submit">Add</button>
             </div>
           </div>
         </form>
