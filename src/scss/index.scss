@@ -1,0 +1,193 @@
+// Variables
+@import 'colors';
+@import 'sizes';
+
+html {
+	font-family: 'Open Sans', sans-serif;
+	height: 100%;
+}
+
+body {
+	background: $blue-200;
+	background: linear-gradient(to right, $blue-200, $pink-200);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	height: 100%;
+	margin: 0;
+}
+
+#root {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin: 100px 0 0;
+}
+
+.app {
+	align-items: center;
+	background: white;
+	border-radius: $space-xs;
+	box-shadow: 0px $space-base $space-sm -3px $gray;
+	box-sizing: border-box;
+	display: flex;
+	flex: 0 0 30%;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	padding: $space-xl;
+}
+
+.todoList {
+	width: 100%;
+
+	&--input {
+		display: flex;
+		flex-direction: column;
+
+		&--field {
+			background: transparent;
+			border: none;
+			border-bottom: $space-xs solid $gray;
+			font-size: $fs-body;
+			outline: none;
+			position: relative;
+			transition: 0.2s ease border-bottom;
+			width: 100%;
+
+			&:focus {
+				border-bottom: $space-xs solid $blue-100;
+			}
+		}
+
+		&--container {
+			display: flex;
+			height: $space-xl * 2;
+		}
+
+		&--btn {
+			background: $blue-100;
+			border: none;
+			border-radius: $space-xs;
+			color: white;
+			font-size: $fs-body;
+			margin-left: $space-sm;
+			width: $space-xl * 3;
+
+			&:hover,
+			&:focus {
+				background: $blue-300;
+				box-shadow: 0px 4px 8px -3px #708090;
+				outline: none;
+			}
+		}
+
+		&--label {
+			color: $blue-100;
+			font-size: $fs-header;
+		}
+	}
+
+	&--list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		&--delete {
+			background: #f653a6;
+			border: none;
+			border-radius: 2px;
+			color: $white;
+			font-size: 14px;
+
+			&:hover,
+			&:focus {
+				background: $pink-100;
+				box-shadow: 0px 4px 8px -3px #708090;
+				outline: none;
+			}
+		}
+
+		&--checkbox {
+			cursor: pointer;
+			position: absolute;
+			opacity: 0;
+
+		 	&:checked {
+				+ label {
+					&::before {
+						background: $pink-100;
+						border-color: $pink-100;
+					}
+
+					&::after {
+						display: block;
+					}
+				}
+			}
+		}
+
+		&--item {
+			margin: $space-sm 0 0;
+			display: flex;
+			height: $space-xl * 2;
+			justify-content: space-between;
+			align-items: center;
+			position: relative;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			&:last-of-type {
+				margin: $space-sm 0 $space-sm;
+			}
+		}
+
+		&--label {
+			align-items: center;
+			cursor: pointer;
+			display: flex;
+
+			&:before {
+				content: '';
+				margin-right: $space-md;
+				display: inline-block;
+				width: $space-xl;
+				height: $space-xl;
+				border-radius: 50%;
+				border: 2px solid $gray;
+				box-sizing: border-box;
+				background: transparent;
+			}
+
+			&:after {
+				position: absolute;
+				content: '';
+				display: none;
+				width: $space-base;
+				height: 10px;
+				transform: rotate(45deg);
+				border: solid $white;
+				border-width: 0 $space-xs $space-xs 0;
+				left: 7px;
+				top: 13px;
+			}
+
+			span {
+				font-size: $fs-body;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		}
+	}
+}
+
+input[type="checkbox"] {
+	&:checked {
+		+ label {
+			color: $gray;
+			text-decoration: line-through;
+		}
+	}
+}
