@@ -34,6 +34,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	height: 100%;
+	max-width: 500px;
 	padding: $space-xl;
 }
 
@@ -98,6 +99,7 @@ body {
 			border-radius: 2px;
 			color: $white;
 			font-size: 14px;
+			margin: 0 0 0 $space-md;
 
 			&:hover,
 			&:focus {
@@ -127,6 +129,16 @@ body {
 					}
 				}
 			}
+
+			&:focus {
+				+ label {
+					color: $pink-500;
+
+					&::before {
+						border-color: $pink-500;
+					}
+				}
+			}
 		}
 
 		&--item {
@@ -146,6 +158,7 @@ body {
 			align-items: center;
 			cursor: pointer;
 			display: flex;
+			overflow: hidden;
 
 			&:before {
 				content: '';
@@ -157,6 +170,7 @@ body {
 				border: 2px solid $gray;
 				box-sizing: border-box;
 				background: transparent;
+				flex: 0 0 auto;
 			}
 
 			&:after {
