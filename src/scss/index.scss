@@ -9,7 +9,7 @@ html {
 
 body {
 	background: $blue-200;
-	background: linear-gradient(to right, $blue-200, $pink-200);
+	background: linear-gradient(to right, $blue-200, $pink-300);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	height: 100%;
@@ -101,7 +101,7 @@ body {
 
 			&:hover,
 			&:focus {
-				background: $pink-100;
+				background: $pink-500;
 				box-shadow: 0px 4px 8px -3px #708090;
 				outline: none;
 			}
@@ -114,9 +114,12 @@ body {
 
 		 	&:checked {
 				+ label {
+					color: $gray;
+					text-decoration: line-through;
+
 					&::before {
-						background: $pink-100;
-						border-color: $pink-100;
+						background: $pink-500;
+						border-color: $pink-500;
 					}
 
 					&::after {
@@ -136,10 +139,6 @@ body {
 
 			&:hover {
 				cursor: pointer;
-			}
-
-			&:last-of-type {
-				margin: $space-sm 0 $space-sm;
 			}
 		}
 
@@ -181,13 +180,56 @@ body {
 			}
 		}
 	}
-}
 
-input[type="checkbox"] {
-	&:checked {
-		+ label {
-			color: $gray;
-			text-decoration: line-through;
+	&--empty-state {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		color: slategray;
+		height: 300px;
+		width: 100%;
+		margin-top: 16px;
+
+		&--header {
+			font-size: $fs-empty-header;
+			margin: 0;
+		}
+
+		&--descrip {
+			font-size: $fs-body;
+			margin: 0;
+		}
+
+		&--icon {
+			animation: 5s infinite colorchange;
+			font-size: $fs-header *2;
+		}
+
+		&--row {
+			margin: 0 0 $space-sm;
+
+			&:last-of-type {
+				margin: 0;
+			}
 		}
 	}
+}
+
+@keyframes colorchange {
+	0% {
+		color: $pink-100;
+	}
+	25% {
+		color: $pink-200;
+	}
+	50% {
+		color: $pink-300;
+	}
+	75% {
+		color: $pink-400;
+	}
+  100% {
+    color: $pink-500;
+  }
 }

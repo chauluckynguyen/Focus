@@ -17,7 +17,7 @@ class TodoItems extends React.Component {
       <li className="todoList--list--item" key={item.key}>
         <input className="todoList--list--checkbox" type="checkbox" id={item.key}></input>
         <label className="todoList--list--label" htmlFor={item.key}><span>{item.text}</span></label>
-        <button className="todoList--list--delete" onClick={() => this.delete(item.key)}><i class="fa fa-times" aria-hidden="true"></i></button>
+        <button className="todoList--list--delete" onClick={() => this.delete(item.key)}><i className="fa fa-times" aria-hidden="true"></i></button>
       </li>
     )
   }

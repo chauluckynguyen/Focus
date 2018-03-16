@@ -1,12 +1,14 @@
 import React from "react";
-import TodoItems from "./TodoItems";
+// import TodoItems from "./TodoItems";
+import TodoSection from "./TodoSection";
 
 class TodoList extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      items: []
+      items: [],
+      isEmptyState : true
     };
 
     this.addItem = this.addItem.bind(this);
@@ -29,6 +31,14 @@ class TodoList extends React.Component {
         };
       });
 
+      this.setState(() => {
+        return {
+          isEmptyState: false
+        }
+      });
+
+      console.log(this.state.isEmptyState);
+
       this._inputElement.value = "";
     }
 
@@ -48,6 +58,8 @@ class TodoList extends React.Component {
   }
 
   render() {
+    const{isEmptyState, items} = this.state;
+
     return (
       <div className="todoList">
         <form onSubmit={this.addItem}>
@@ -59,7 +71,7 @@ class TodoList extends React.Component {
             </div>
           </div>
         </form>
-        <TodoItems entries={this.state.items} delete={this.deleteItem}/>
+        <TodoSection isEmptyState={isEmptyState} items={items} deleteItem={this.deleteItem}/>
       </div>
     );
   }

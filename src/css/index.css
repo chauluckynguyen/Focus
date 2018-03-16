@@ -81,11 +81,14 @@ body {
       cursor: pointer;
       position: absolute;
       opacity: 0; }
-      .todoList--list--checkbox:checked + label::before {
-        background: #F73A9A;
-        border-color: #F73A9A; }
-      .todoList--list--checkbox:checked + label::after {
-        display: block; }
+      .todoList--list--checkbox:checked + label {
+        color: #708090;
+        text-decoration: line-through; }
+        .todoList--list--checkbox:checked + label::before {
+          background: #F73A9A;
+          border-color: #F73A9A; }
+        .todoList--list--checkbox:checked + label::after {
+          display: block; }
     .todoList--list--item {
       margin: 8px 0 0;
       display: flex;
@@ -95,8 +98,6 @@ body {
       position: relative; }
       .todoList--list--item:hover {
         cursor: pointer; }
-      .todoList--list--item:last-of-type {
-        margin: 8px 0 8px; }
     .todoList--list--label {
       align-items: center;
       cursor: pointer;
@@ -127,7 +128,37 @@ body {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap; }
+  .todoList--empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: slategray;
+    height: 300px;
+    width: 100%;
+    margin-top: 16px; }
+    .todoList--empty-state--header {
+      font-size: 16px;
+      margin: 0; }
+    .todoList--empty-state--descrip {
+      font-size: 14px;
+      margin: 0; }
+    .todoList--empty-state--icon {
+      animation: 5s infinite colorchange;
+      font-size: 48px; }
+    .todoList--empty-state--row {
+      margin: 0 0 8px; }
+      .todoList--empty-state--row:last-of-type {
+        margin: 0; }
 
-input[type="checkbox"]:checked + label {
-  color: #708090;
-  text-decoration: line-through; }
+@keyframes colorchange {
+  0% {
+    color: #FFBEDF; }
+  25% {
+    color: #FF82C2; }
+  50% {
+    color: #FF5CAF; }
+  75% {
+    color: #FD41A1; }
+  100% {
+    color: #F73A9A; } }
